@@ -7,21 +7,10 @@
     "id": "qamera",
     "version": "0.1.0",
     "url": null,
-    "additionalData": {
-      "overrideSoName": "libqamera.so",
-      "cmake": true
-    }
+    "additionalData": {}
   },
   "workspace": {
-    "scripts": {
-      "build": ["bash build.sh"],
-      "copy": ["bash copy-and-restart.sh"]
-    },
-    "qmodIncludeDirs": [],
-    "qmodOutputDirs": [],
-    "ndk": {
-      "version": "^27.0.0"
-    }
+    "ndk": "^27.0.0"
   },
   "dependencies": [
     {
@@ -49,7 +38,7 @@
       "versionRange": "*",
       "additionalData": {
         "private": true,
-        "_comment": "IMPORTANT: pin this to the bs-cordl release that targets Beat Saber 1.37.0 specifically (check https://qpackages.com/bs-cordl or the BSMG #quest-mod-dev release notes). A '*' or caret-latest range will pull headers for the newest game version and will NOT match 1.37.0's binary layout -- the mod will crash on load. The CI workflow's first run will tell you the resolved version; replace '*' with that exact version pinned (e.g. '=1.4.2') once confirmed."
+        "_comment": "IMPORTANT: pin this to the bs-cordl release that targets Beat Saber 1.37.0 specifically. A '*' range pulls headers for the newest game version and will NOT match 1.37.0's binary layout -- the mod will crash on load."
       }
     },
     {
