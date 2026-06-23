@@ -21,6 +21,8 @@ add_compile_definitions(
     ID="qamera"
 )
 
+include(${CMAKE_CURRENT_SOURCE_DIR}/qpm_defines.cmake)
+
 file(GLOB_RECURSE SOURCE_FILES
     ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp
 )
@@ -29,17 +31,11 @@ add_library(qamera SHARED ${SOURCE_FILES})
 
 target_include_directories(qamera PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/include
-    ${CMAKE_CURRENT_SOURCE_DIR}/extern/includes
 )
 
-target_link_directories(qamera PRIVATE
-    ${CMAKE_CURRENT_SOURCE_DIR}/extern/libs
-)
+include(${CMAKE_CURRENT_SOURCE_DIR}/extern.cmake)
 
-# Linked libs are pulled in automatically by QPM's restore step
-# (beatsaber-hook, bs-cordl, custom-types, bsml, config-utils, paper2_scotland2)
-file(GLOB EXTERN_LIBS ${CMAKE_CURRENT_SOURCE_DIR}/extern/libs/*.so)
-target_link_libraries(qamera PRIVATE ${EXTERN_LIBS} log)
+target_link_libraries(qamera PRIVATE log)
 
 set_target_properties(qamera PROPERTIES
     OUTPUT_NAME "qamera"
