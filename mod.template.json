@@ -1,0 +1,30 @@
+{
+  "_QPVersion": "0.1.2",
+  "name": "Qamera",
+  "id": "${id}",
+  "version": "${version}",
+  "packageId": "com.beatgames.beatsaber",
+  "packageVersion": "1.37.0",
+  "description": "Built-in detached recording camera for Beat Saber -- free-cam positioning, adjustable FOV, smoothing, headset-mirror toggle, and saved presets.",
+  "author": "you",
+  "porter": "",
+  "coverImage": "cover.png",
+  "dependencies": [
+    {
+      "id": "bsml",
+      "version": "^0.4.43",
+      "downloadIfMissing": "https://github.com/RedBrumbler/Quest-BSML/releases/download/v0.4.43/BSML.qmod"
+    },
+    {
+      "id": "custom-types",
+      "version": "^0.17.8",
+      "downloadIfMissing": "https://github.com/QuestPackageManager/Il2CppQuestTypePatching/releases/download/v0.17.10/CustomTypes.qmod"
+    }
+  ],
+  "modFiles": [
+    "libqamera.so"
+  ],
+  "libraryFiles": [],
+  "fileCopies": [],
+  "copyExtensions": []
+}

@@ -1,0 +1,42 @@
+name: Build Qamera qmod
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch: {}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up NDK r27
+        uses: nttld/setup-ndk@v1
+        id: setup-ndk
+        with:
+          ndk-version: r27c
+          add-to-path: true
+
+      - name: Install Ninja
+        run: sudo apt-get update && sudo apt-get install -y ninja-build
+
+      - name: Install QPM CLI
+        run: |
+          curl -L "https://github.com/QuestPackageManager/QPM.CLI/releases/latest/download/qpm-rust-linux" -o qpm
+          chmod +x qpm
+          sudo mv qpm /usr/local/bin/qpm
+
+      - name: qpm restore
+        run: qpm restore
+
+      - name: Build
+        env:
+          ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
+        run: bash build.sh
+
+      - name: Upload qmod artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: qamera-qmod
+          path: qamera.qmod

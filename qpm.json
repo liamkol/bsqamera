@@ -1,0 +1,63 @@
+{
+  "version": "0.1.0",
+  "sharedDir": "shared",
+  "dependenciesDir": "extern",
+  "info": {
+    "name": "Qamera",
+    "id": "qamera",
+    "version": "0.1.0",
+    "url": null,
+    "additionalData": {
+      "overrideSoName": "libqamera.so",
+      "cmake": true
+    }
+  },
+  "workspace": {
+    "scripts": {
+      "build": ["bash build.sh"],
+      "copy": ["bash copy-and-restart.sh"]
+    },
+    "qmodIncludeDirs": [],
+    "qmodOutputDirs": [],
+    "ndk": {
+      "version": "^27.0.0"
+    }
+  },
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "versionRange": "^6.3.2",
+      "additionalData": {}
+    },
+    {
+      "id": "custom-types",
+      "versionRange": "^0.17.8",
+      "additionalData": {}
+    },
+    {
+      "id": "bsml",
+      "versionRange": "^0.4.43",
+      "additionalData": {}
+    },
+    {
+      "id": "config-utils",
+      "versionRange": "^2.0.3",
+      "additionalData": {}
+    },
+    {
+      "id": "bs-cordl",
+      "versionRange": "*",
+      "additionalData": {
+        "private": true,
+        "_comment": "IMPORTANT: pin this to the bs-cordl release that targets Beat Saber 1.37.0 specifically (check https://qpackages.com/bs-cordl or the BSMG #quest-mod-dev release notes). A '*' or caret-latest range will pull headers for the newest game version and will NOT match 1.37.0's binary layout -- the mod will crash on load. The CI workflow's first run will tell you the resolved version; replace '*' with that exact version pinned (e.g. '=1.4.2') once confirmed."
+      }
+    },
+    {
+      "id": "paper2_scotland2",
+      "versionRange": "^4.0.0",
+      "additionalData": {
+        "private": true
+      }
+    }
+  ]
+}
