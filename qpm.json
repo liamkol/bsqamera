@@ -35,10 +35,9 @@
     },
     {
       "id": "bs-cordl",
-      "versionRange": "*",
+      "versionRange": "3700.0.0",
       "additionalData": {
-        "private": true,
-        "_comment": "IMPORTANT: pin this to the bs-cordl release that targets Beat Saber 1.37.0 specifically. A '*' range pulls headers for the newest game version and will NOT match 1.37.0's binary layout -- the mod will crash on load."
+        "private": true
       }
     },
     {
